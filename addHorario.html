@@ -1,0 +1,45 @@
+<html>
+<body>
+
+<?php
+// Para acessar o bd
+	$servername = "localhost";
+	$username = "vitor";
+	$password = "vitor";
+	$dbname = "horario";
+		
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// Check connection
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+	
+	$sql = "SELECT diaSemana\n"
+    . "FROM dia\n";
+	
+	$result = mysqli_query($conn, $sql);
+?>
+<select>
+
+<option value = "vitor" > vitor2 </option>
+<option value = "vitor" > vitor2 </option>
+
+</select>
+
+<select>
+
+
+
+</select>
+<?php
+	if (mysqli_num_rows($result) > 0) {
+		// output data of each row
+		while($row = mysqli_fetch_assoc($result)) {
+			//echo "<option value = '" . $row["diaSemana"] . "' > " . $row["diaSemana"] . "</option> <br>";
+			echo $row["diaSemana"];
+		}
+	}		
+?>
+</body>
+</html>
